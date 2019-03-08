@@ -19,7 +19,7 @@ You can find the API documentation generated using Swagger 2 => [API Documentati
 you will find all the routes, payloads documentation and the model documentation.
 
 
-Maven and Spring Boot:
+** Maven and Spring Boot: **
 I used maven to import spring-boot-starter-parent as parent. Its permits to not manage all the dependencies version and compatibilities
 Maven will also manage to import the artifacts:
 - spring-boot-starter-web which will import hibernate to manage data, tomcat to run the app without having to deploye the code, logging for the logs and Jackson to parse JSON and link Java classes and Json content
@@ -27,7 +27,7 @@ Maven will also manage to import the artifacts:
 - h2, which is a light data base. I choose it because it is easy to set, Spring Boot auto-setup the data base, the connection to it. It uses a data.sql file to create and initialize the context with data.
 - Swagger, to create an in-code documentation of all API and Model, it needs to be setup by SwaggerConfig (com.game.microfeedback.configuration)
 
-Model and Database:
+** Model and Database: **
 My data base is created based on the @Entity annotation on each classes of my model (com.game.microfeedback.model).
 We have:
 - Session, represents a game session identified by its id
@@ -37,20 +37,20 @@ We have:
 I used Spring annotation to limit the rating from 1 to 5 and to define a unique constraints on User.id and Session.id. This will avoid to create multiple feedback for the same session and same user
 @ManyToOne annotation on User and Session attributes permits to define the relation between the tables.
 
-Controller Layer:
+** Controller Layer: **
 Each class of the model gets its own controller. It permits to define the link between Rest Route and call to the Database.
 I tried to keep any business definition in the Service Layer.
 
-Dao Layer
+** Dao Layer **
 My Dao classes all extends JPARepository interface. This permits to Spring to deduct the query for common actions like findById, findAll.
 It not need to create DaoImpl classes with JPARepository.
 To manage the sorting I used Pageable object to set on which i want it sorted and how many result, this permits to manage the HTTP endpoint for the last 15 feedbacks
 
-Service Layer:
+** Service Layer: **
 To allow the filtering by rating, I created a service called by my controller to sort the list of the last 15 feedbacks by rating by using Comparator object.
 I only created a service for Feedback, as Session and User only used classic CRUD process, they did not need business logic.
 
-Exceptions:
+** Exceptions: **
 Exceptions are raised when we cannot find an element in database and when the param of the route /feedbacks are not corrects.
 
 

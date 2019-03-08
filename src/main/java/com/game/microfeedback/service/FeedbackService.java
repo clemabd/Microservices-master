@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class FeedbackService {
 
-    public List<Feedback> getListOrdored(List<Feedback> feedbacks, String field, String sort) {
+    public List<Feedback> getListOrdered(List<Feedback> feedbacks, String field, String sort) {
 
         List<Feedback> feedbacksMod = new ArrayList<>(feedbacks); //Create a modifiable list from the unmodifiable list return by DAO
 

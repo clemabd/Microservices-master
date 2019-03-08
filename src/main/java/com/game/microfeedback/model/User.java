@@ -16,6 +16,7 @@ public class User {
         this.id = id;
     }
 
+    //Getter and setter
     public int getId() {
         return id;
     }

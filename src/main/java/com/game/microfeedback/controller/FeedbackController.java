@@ -17,9 +17,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 
@@ -27,7 +24,7 @@ import java.util.List;
 @RestController
 public class FeedbackController {
 
-    // Couche données
+    // DAO Layer
     @Autowired
     private FeedbackDao feedbackDao;
     @Autowired
@@ -83,7 +80,7 @@ public class FeedbackController {
         if (sort == null || ( sort.compareTo("acs") != 0 && sort.compareTo("desc") != 0))
             throw new FeedbackFiltersException(sort + " is an invalid sort direction, please enter acs or desc");
 
-        return  feedbackService.getListOrdored(this.getFeedbackOrdered(n), field, sort);
+        return  feedbackService.getListOrdered(this.getFeedbackOrdered(n), field, sort);
     }
 
     //Get Feedbacks with param

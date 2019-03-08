@@ -32,7 +32,7 @@ public class Feedback {
 
     private String comment;
 
-    public Feedback(){};
+    public Feedback(){}
 
     public Feedback(int id,  int rating, String comment) {
         this.id = id;
@@ -40,7 +40,7 @@ public class Feedback {
         this.comment = comment;
     }
 
-
+    //Getter and setter
     public int getId() {
         return id;
     }

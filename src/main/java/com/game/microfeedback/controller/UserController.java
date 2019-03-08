@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    // Couche données
+    // DAO layer
     @Autowired
     private UserDao userDao;
 

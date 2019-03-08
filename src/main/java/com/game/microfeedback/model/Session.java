@@ -9,12 +9,7 @@ public class Session {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
-
-
-
-    public Session() {
-
-    }
+    public Session() {}
 
     public Session(int id) {
         this.id = id;

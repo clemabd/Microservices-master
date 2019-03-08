@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 public class SessionController {
 
-    // Couche données
+    // DAO layer
     @Autowired
     private SessionDao sessionDao;
 
